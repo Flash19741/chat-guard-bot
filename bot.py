@@ -43,7 +43,7 @@ async def on_user_joined(message: Message):
         )
 
 # Хендлер для команды /joke (обязательно ставим ПЕРЕД общим обработчиком F.text)
-@dp.message(F.text.regexp(r"^/joke(@\w+)?$"))
+@dp.message(F.text.regexp(r"^/анекдот(@\w+)?$"))
 async def send_joke_command(message: Message):
     joke = random.choice(JOKES)
     await message.answer(joke)
