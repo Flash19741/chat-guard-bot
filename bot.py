@@ -103,12 +103,12 @@ async def on_user_joined(message: Message):
             f"Добро пожаловать в группу, {user.first_name}! 🎉\nМы рады видеть нового участника."
         )
 
-@dp.message(F.text.regexp(r"^/анекдот(@\w+)?$"))
+@dp.message(F.text.regexp(r"^/анекдот|anekdot(@\w+)?$"))
 async def send_joke_command(message: Message):
     joke = random.choice(JOKES)
     await message.answer(joke)
 
-@dp.message(F.text.regexp(r"^/афоризм(@\w+)?$"))
+@dp.message(F.text.regexp(r"^/афоризм|aforizm(@\w+)?$"))
 async def send_aphorism_command(message: Message):
     aphorism = random.choice(APHORISMS)
     await message.answer(aphorism)
