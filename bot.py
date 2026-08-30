@@ -42,6 +42,12 @@ async def on_user_joined(message: Message):
             f"Добро пожаловать в группу, {user.first_name}! 🎉\nМы рады видеть нового участника."
         )
 
+# Хендлер для команды /joke (обязательно ставим ПЕРЕД общим обработчиком F.text)
+@dp.message(F.text.regexp(r"^/joke(@\w+)?$"))
+async def send_joke_command(message: Message):
+    joke = random.choice(JOKES)
+    await message.answer(joke)
+
 @dp.message(F.text)
 async def handle_all_messages(message: Message):
     if message.text.startswith("/"):
@@ -57,11 +63,6 @@ async def handle_all_messages(message: Message):
     elif random.randint(1, 20) == 1:
         joke = random.choice(JOKES)
         await message.answer(f"Кстати, к слову пришлось:\n\n{joke}")
-
-@dp.message(F.text.regexp(r"^/joke(@\w+)?$"))
-async def send_joke_command(message: Message):
-    joke = random.choice(JOKES)
-    await message.answer(joke)
 
 # Заглушка веб-сервера для Render, чтобы он не отключал бесплатный тариф по тайм-ауту
 async def handle_ping(request):
