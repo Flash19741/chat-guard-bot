@@ -10,7 +10,7 @@ from aiogram.types import Message
 from database import check_and_update_user
 
 logging.basicConfig(level=logging.INFO)
-TOKEN = "8724671069:AAEBl86PVIx0HVRwwLAZK9dnkMmDvx_jljk"
+TOKEN = "8724671069:AAECWviWriNTf68Xff1iRqXHoKJ1bFEzviQ"
 
 JOKES = [
     "— Дорогой, у нас в доме проблемы: ты или я, или твой телефон! Выбирай!\n— Любимая, не ставив ультиматумы... На телефоне до сих пор идет ивент, я не могу его закрыть!",
